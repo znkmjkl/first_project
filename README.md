@@ -254,3 +254,22 @@ Troubleshooting
 This is most likely because the new window has been blocked by your popup blocker, so make sure it's disabled before trying again.
 
 Reference: [issue 110](https://github.com/davezuko/react-redux-starter-kit/issues/110)
+
+MongoDB installation and run
+--------------------
+
+1. Download mongodb from https://www.mongodb.org/downloads#production current stable release 3.2.
+1. Install mongodb.
+1. Go to bin installation directory : 
+   * run mongodb server (mongod --storageEngine=mmapv1 --dbpath C:\temp\mongo_data)
+   * run mongo shell (mongo)
+1. Run node.js project and check if it saves record to database 
+   (database config is specified in base.js and currently it should work for default mongodb installation).
+   Type bellow command to mongo:
+   
+   * use initial_project_database
+   * db.passwords.find()
+   
+   Result:
+   { "_id" : ObjectId("5679ccba1c7c559803db6814"), "loginName" : "admin3", "password" : "fghj", "__v" : 0 }
+   

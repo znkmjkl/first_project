@@ -1,10 +1,31 @@
 import express from 'express'
 import historyApiFallback from 'connect-history-api-fallback'
 import config from '../config'
+import databaseConnector from '../database/databaseConnector.js'
+import initializeDB from '../database/initialize/initializeDB.js'
+import password from '../database/model/password.js'
 
 const app = express()
 const debug = require('debug')('app:server')
 const paths = config.utils_paths
+
+databaseConnector(config);
+initializeDB();
+
+// it will be replaced soon with authentication 
+// only testing issue      
+app.get('/login', function(req, res){
+	password.find({}, function(error, passwords){
+		if(error)
+		{ 
+			console.log('Could not get password :' + error);
+		}
+		else 
+		{ 
+			console.log(passwords);
+		}
+	});
+});
 
 app.use(historyApiFallback({
   verbose: false

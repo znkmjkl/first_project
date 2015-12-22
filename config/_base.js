@@ -23,6 +23,13 @@ const config = {
   server_port : process.env.PORT || 3000,
 
   // ----------------------------------
+  // Database Configuration
+  // ----------------------------------
+  database_server : 'localhost',
+  database_port : 27017,
+  database_name : 'initial_project_database',
+  
+  // ----------------------------------
   // Compiler Configuration
   // ----------------------------------
   compiler_css_modules     : true,
